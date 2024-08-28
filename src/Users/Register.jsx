@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
+
 const Register = () => {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
@@ -16,7 +17,7 @@ const Register = () => {
             return
         }
 
-        const response = await fetch('http://localhost:8000/users/register', {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/users/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -33,6 +34,7 @@ const Register = () => {
             navigate('/user/login')
         }
     }
+    console.log(import.meta.env.VITE_API_URL)
     return (
         <div className="p-1">
             <h3 className="text-4xl p-4">Register</h3>

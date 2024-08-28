@@ -11,7 +11,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await fetch("http://localhost:8000/users/login",
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/users/login`,
         {
           method: 'POST',
           headers: {

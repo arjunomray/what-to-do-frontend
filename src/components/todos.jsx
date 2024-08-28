@@ -8,7 +8,7 @@ const Todo = () => {
 
     const fetchTodos = async () => {
         try {
-            const response = await fetch("http://localhost:8000/todos", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/todos`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -33,7 +33,7 @@ const Todo = () => {
         if (inputValue.trim() === "") return;
 
         try {
-            const response = await fetch("http://localhost:8000/todos/create", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/todos/create`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

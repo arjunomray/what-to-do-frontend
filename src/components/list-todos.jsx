@@ -2,7 +2,7 @@ const ListTodos = ({ myTodos, setMyTodos }) => {
   const token = localStorage.getItem('token')
 
   const handleClick = async (todo) => {
-    const response = await fetch(`http://localhost:8000/todos/update_state/${todo.id}`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/todos/update_state/${todo.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': "application/json",
@@ -31,7 +31,7 @@ const ListTodos = ({ myTodos, setMyTodos }) => {
 
     const name = prompt("Enter new name")
 
-    const response = await fetch(`http://localhost:8000/todos/update_state/${todo.id}`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/todos/update_state/${todo.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': "application/json",
@@ -56,7 +56,7 @@ const ListTodos = ({ myTodos, setMyTodos }) => {
     }
   }
   const handleDelete = async (todo) => {
-    const response = await fetch(`http://localhost:8000/todos/delete/${todo.id}`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/todos/delete/${todo.id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': "application/json",
