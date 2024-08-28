@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Login from './Users/Login.jsx'
 import Register from './Users/Register.jsx'
 import "./index.css"
+import Todo from './components/todos.jsx'
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
                 path: "user/register",
                 element: <Register />
             },
+            {
+                path: "user/todos",
+                element: <Todo />
+            }
 
         ]
     }

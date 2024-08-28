@@ -2,9 +2,9 @@ import { useState, useEffect } from "react"
 import ListTodos from "./list-todos"
 
 const Todo = () => {
+    const [todos, setTodos] = useState([])
     const token = localStorage.getItem('token')
     const [inputValue, setInputValue] = useState("")
-    const [todos, setTodos] = useState([]);
 
     const fetchTodos = async () => {
         try {

@@ -1,16 +1,24 @@
-import Todo from "./components/todos"
+import { useEffect, useState } from "react"
 import Navbar from "./components/Navbar"
 import { Outlet } from "react-router-dom"
 
+
 function App() {
+    let [loginState, setLoginState] = useState(true)
+
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        if (token) {
+            setLoginState(true)
+        }
+    }, [])
     return (
         <>
 
-            <Navbar />
+            <Navbar loginState={loginState} setLoginState={setLoginState} />
             <main className="flex justify-center align-middle ">
-                <Outlet />
+                <Outlet context={{ setLoginState }}/>
             </main>
-            <Todo />
         </>
     )
 }
